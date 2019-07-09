@@ -10,9 +10,7 @@ const Numbers = () => {
   
   return (
     <div>
-      {props.numbers.map(number=>
-        console.log(number)
-        )}
+      {numbers.map(number=><h3>{number}</h3>)}
 
       {/* STEP 3 - Use .map() to iterate over your array data and return a button
        component matching the name on the provided file. Pass
