@@ -1,13 +1,16 @@
 import React from "react";
 import "./App.css";
-import {numbers} from "./data"
-import {operators} from "./data"
-import {specials} from "./data"
+import { numbers } from "./data";
+import { operators } from "./data";
+import { specials } from "./data";
 // STEP 4 - import the button and display components
 // Don't forget to import any extra css/scss files you build into the correct component
 
 // Logo has already been provided for you. Do the same for the remaining components
 import Logo from "./components/DisplayComponents/Logo";
+import NumberButton from "./components/ButtonComponents/NumberButtons/NumberButton";
+import OperatorButton from "./components/ButtonComponents/OperatorButtons/OperatorButton";
+import SpecialButton from "./components/ButtonComponents/SpecialButtons/SpecialButton";
 
 function App() {
   // STEP 5 - After you get the components displaying using the provided data file, write your state hooks here.
@@ -17,16 +20,23 @@ function App() {
   // Don't forget to pass the functions (and any additional data needed) to the components as props
 
   return (
-    console.log(numbers),
-    <div className="container">
-      <Logo />
-      <div className="App">
-        {numbers.map(number=><button>{number}</button>)}
-        {operators.map(operator=><button>{operator.char}</button>)}
-        {specials.map(special=><button>{special}</button>)}
-        {/* STEP 4 - Render your components here and be sure to properly import/export all files */}
+
+    
+      <div className="container">
+        <Logo />
+        <div className="App">
+          <h1 />
+          <div>
+            <NumberButton />
+          </div>
+          <div>
+            <OperatorButton />
+          </div>
+          <SpecialButton />
+          {/* STEP 4 - Render your components here and be sure to properly import/export all files */}
+        </div>
       </div>
-    </div>
+    
   );
 }
 
