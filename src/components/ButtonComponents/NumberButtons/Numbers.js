@@ -6,7 +6,7 @@ import NumberButton from "./NumberButton"
 
 //Import your array data to from the provided data file
 
-const Numbers = () => {
+const Numbers = (props) => {
 
 const [numberList, setNumber] = useState(numbers)
 
@@ -14,7 +14,7 @@ const [numberList, setNumber] = useState(numbers)
 
   return (
     <div>
-      {numberList.map(number=>(<NumberButton number={number} />))}
+      {numberList.map(number=>(<NumberButton number={number} setFirstNumber = {props.setFirstNumber} />))}
 
       {/* STEP 3 - Use .map() to iterate over your array data and return a button
        component matching the name on the provided file. Pass

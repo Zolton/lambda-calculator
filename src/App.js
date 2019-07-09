@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./App.css";
 import { numbers } from "./data";
 import { operators } from "./data";
@@ -11,7 +11,7 @@ import Logo from "./components/DisplayComponents/Logo";
 import Numbers from "./components/ButtonComponents/NumberButtons/Numbers";
 import Operators from "./components/ButtonComponents/OperatorButtons/Operators";
 import Specials from "./components/ButtonComponents/SpecialButtons/Specials";
-import Display from "./components/DisplayComponents/Display"
+import Display from "./components/DisplayComponents/Display";
 
 function App() {
   // STEP 5 - After you get the components displaying using the provided data file, write your state hooks here.
@@ -20,24 +20,30 @@ function App() {
   // the "5" button, or the operator if they click one of those buttons) and then call your setter function to update state.
   // Don't forget to pass the functions (and any additional data needed) to the components as props
 
-  return (
+  const [firstNumber, setFirstNumber] = useState(0);
+  const [mathOperator, setMathOperator] = useState();
+  const [secondNumber, setSecondNumber] = useState(0);
+  const [finalResult, setFinalResult] = useState(0);
 
-    
-      <div className="container">
-        <Logo />
-        <div className="App">
-          <Display />
-          <div>
-            <Numbers />
-          </div>
-          <div>
-            <Operators />
-          </div>
-          <Specials />
-          {/* STEP 4 - Render your components here and be sure to properly import/export all files */}
+  // getResult = () => {
+  //   setFinalResult( {firstNumber} + {mathOperator} + {secondNumber} )
+  // }
+
+  return (
+    <div className="container">
+      <Logo />
+      <div className="App">
+        <Display finalResult={finalResult} firstNumber={firstNumber} secondNumber = {secondNumber} />
+        <div>
+          <Numbers setFirstNumber={setFirstNumber} />
         </div>
+        <div>
+          <Operators setMathOperator={setMathOperator} />
+        </div>
+        <Specials />
+        {/* STEP 4 - Render your components here and be sure to properly import/export all files */}
       </div>
-    
+    </div>
   );
 }
 

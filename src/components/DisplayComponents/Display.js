@@ -1,9 +1,9 @@
 import React, {useState} from "react";
 
 
-const Display = () => {
+const Display = (props) => {
   return <div>{/* Display any props data here */}
-  display here
+  {props.firstNumber}
   </div>;
 
   // {homeScore goes here, sethomescore passed down to props onClick}
