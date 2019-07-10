@@ -21,8 +21,7 @@ function App() {
   // Don't forget to pass the functions (and any additional data needed) to the components as props
 
   const [firstNumber, setFirstNumber] = useState("");
-  const [firstInteger, setFirstInteger] = useState(0)
-  const [mathOperator, setMathOperator] = useState();
+  const [mathOperator, setMathOperator] = useState("");
   const [secondNumber, setSecondNumber] = useState(0);
   const [finalResult, setFinalResult] = useState(0);
 
@@ -30,16 +29,16 @@ function App() {
 
   // setSummary(summary + firstNumber)
 
-  const addInput = (newNumber) => {
-    setFirstNumber(firstNumber + newNumber)
-    //console.log("this is first number")
-    //console.log(newNumber)
-  }
-  
-  
-  
+  const addInput = newNumber => {
+    setFirstNumber(firstNumber + newNumber);
+  };
+
+  const addOperator = newOperator => {
+    setMathOperator(newOperator);
+  };
+
   // () => {
- //  setFirstNumber( {firstNumber} + {mathOperator} + {secondNumber} )
+  //  setFirstNumber( {firstNumber} + {mathOperator} + {secondNumber} )
   // }
 
   return (
@@ -50,12 +49,13 @@ function App() {
           finalResult={finalResult}
           firstNumber={firstNumber}
           secondNumber={secondNumber}
+          mathOperator={mathOperator}
         />
         <div>
           <Numbers addInput={addInput} />
         </div>
         <div>
-          <Operators setMathOperator={setMathOperator} />
+          <Operators addOperator={addOperator} />
         </div>
         <Specials />
         {/* STEP 4 - Render your components here and be sure to properly import/export all files */}

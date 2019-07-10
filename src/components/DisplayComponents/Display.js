@@ -4,7 +4,7 @@ const Display = props => {
   return (
     <div>
       {/* Display any props data here */}
-      {props.firstNumber}
+      {props.firstNumber} {props.mathOperator}
     </div>
   );
 
