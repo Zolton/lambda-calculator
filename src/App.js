@@ -1,8 +1,5 @@
 import React, { useState } from "react";
 import "./App.css";
-import { numbers } from "./data";
-import { operators } from "./data";
-import { specials } from "./data";
 // STEP 4 - import the button and display components
 // Don't forget to import any extra css/scss files you build into the correct component
 
@@ -22,7 +19,7 @@ function App() {
 
   const [firstNumber, setFirstNumber] = useState("");
   const [mathOperator, setMathOperator] = useState("");
-  const [secondNumber, setSecondNumber] = useState(0);
+  const [secondNumber, setSecondNumber] = useState("");
   const [finalResult, setFinalResult] = useState(0);
 
   // const [summary, setSummary] = useState("")
@@ -30,10 +27,24 @@ function App() {
   // setSummary(summary + firstNumber)
 
   const addInput = newNumber => {
+    // newOperator !== "" ? setSecondNumber(secondNumber + newNumber)
+    if (mathOperator !== "") {
+      setSecondNumber(secondNumber + newNumber);
+      return;
+    }
     setFirstNumber(firstNumber + newNumber);
   };
 
   const addOperator = newOperator => {
+    if (newOperator === "=") {
+      // good stuff!
+      setFinalResult(eval(`${firstNumber} ${mathOperator} ${secondNumber}`));
+    }
+    // if (newOperator === ".") {
+    //   setFirstNumber("")
+    //   setSecondNumber("")
+    //   setFinalResult("")
+    // }
     setMathOperator(newOperator);
   };
 
