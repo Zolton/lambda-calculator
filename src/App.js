@@ -20,22 +20,39 @@ function App() {
   // the "5" button, or the operator if they click one of those buttons) and then call your setter function to update state.
   // Don't forget to pass the functions (and any additional data needed) to the components as props
 
-  const [firstNumber, setFirstNumber] = useState(0);
+  const [firstNumber, setFirstNumber] = useState("");
+  const [firstInteger, setFirstInteger] = useState(0)
   const [mathOperator, setMathOperator] = useState();
   const [secondNumber, setSecondNumber] = useState(0);
   const [finalResult, setFinalResult] = useState(0);
 
-  // getResult = () => {
-  //   setFinalResult( {firstNumber} + {mathOperator} + {secondNumber} )
+  // const [summary, setSummary] = useState("")
+
+  // setSummary(summary + firstNumber)
+
+  const addInput = (newNumber) => {
+    setFirstNumber(firstNumber + newNumber)
+    //console.log("this is first number")
+    //console.log(newNumber)
+  }
+  
+  
+  
+  // () => {
+ //  setFirstNumber( {firstNumber} + {mathOperator} + {secondNumber} )
   // }
 
   return (
     <div className="container">
       <Logo />
       <div className="App">
-        <Display finalResult={finalResult} firstNumber={firstNumber} secondNumber = {secondNumber} />
+        <Display
+          finalResult={finalResult}
+          firstNumber={firstNumber}
+          secondNumber={secondNumber}
+        />
         <div>
-          <Numbers setFirstNumber={setFirstNumber} />
+          <Numbers addInput={addInput} />
         </div>
         <div>
           <Operators setMathOperator={setMathOperator} />

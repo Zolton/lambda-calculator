@@ -9,7 +9,7 @@ import SpecialButton from "./SpecialButton"
 const Specials = () => {
   // STEP 2 - add the imported data to state
 const [specialList, setSpecial] = useState(specials)
-console.log(specialList)
+//console.log(specialList)
   return (
     <div>
       {specialList.map(special=>(<SpecialButton special={special} />))}
